@@ -44,7 +44,7 @@ inquirer.prompt(questions).then(answer => {
             const svg = 
                 `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
                 ${element}
-                <text x="150" y="125" font-size="60" text-anchor="middle" fill="${answer.textColor}">${answer.text}</text>
+                <text x="150" y="140" font-size="60" text-anchor="middle" fill="${answer.textColor}">${answer.text}</text>
                 </svg>`
             fs.writeFileSync('logo.svg', svg);
         }
@@ -59,4 +59,4 @@ inquirer.prompt(questions).then(answer => {
             fs.writeFileSync('logo.svg', svg);
         }
     }
-)
+);
