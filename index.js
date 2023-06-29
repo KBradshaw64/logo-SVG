@@ -31,7 +31,8 @@ const questions = [
 
 inquirer.registerPrompt('maxlength-input', maxLengthInputPrompt);
 
-inquirer.prompt(questions).then(answer => {
+inquirer.prompt(questions)
+    .then(answer => {
         if (answer.shape == "Circle") {
             const newShape = new Circle(answer.shapeColor);
             const element = newShape.render();
@@ -62,5 +63,7 @@ inquirer.prompt(questions).then(answer => {
                 </svg>`
             fs.writeFileSync('logo.svg', svg);
         }
-    }
-);
+    })
+    .then(() => {
+        console.log('Generated logo.svg');
+});
