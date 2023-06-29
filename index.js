@@ -1,6 +1,7 @@
 //const shapesChoice = require('./lib/Shape');
 //const shapesTest = require('./lib/shapes.test');
 const inquirer = require('inquirer');
+const maxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
 const fs = require('fs');
 const {Circle, Triangle, Square} = require('./lib/Shape');
 
@@ -18,7 +19,8 @@ const questions = [
 },
 {
     message: "What three letters should be in the logo?",
-    type: "input",
+    type: "maxlength-input",
+    maxLength: 3,
     name: 'text'
 },
 {
@@ -26,6 +28,8 @@ const questions = [
     type: "input",
     name: 'textColor'
 }];
+
+inquirer.registerPrompt('maxlength-input', maxLengthInputPrompt);
 
 inquirer.prompt(questions).then(answer => {
         if (answer.shape == "Circle") {
